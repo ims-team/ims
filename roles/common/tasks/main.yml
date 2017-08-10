@@ -1,0 +1,37 @@
+---
+# tasks file 
+
+
+  - name: upgrade all packages.
+    yum:
+      name: '*'
+      state: latest
+
+  - name: Download epel rpm
+    get_url: url="{{ epel_link }}" dest="/tmp" 
+  
+  - name: install epel rpm
+    yum: 
+      name: /tmp/epel-release-7-10.noarch.rpm
+      state: present
+
+  - name: install some essential applications
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items: "{{ packages_names }}"   
+
+  - name: installing aws cli 
+    command: "{{ item }}"
+    with_items:
+      - "pip install --upgrade --user awscli"
+      - "pip install boto"
+
+  - name: add aws env 
+    lineinfile:
+      path: /etc/profile.d/aws.sh
+      line: "{{ item }}"
+      create: yes
+    with_items: 
+      - export PATH=~/.local/bin:$PATH
+

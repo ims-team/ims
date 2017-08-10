@@ -1,0 +1,13 @@
+---
+# tasks file 
+
+
+- name: Install nginx latest version.
+  yum:
+    name: 'nginx'
+    state: latest
+
+- systemd:
+    name: nginx
+    state: started
+    enabled: True
