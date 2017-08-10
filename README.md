@@ -1,2 +1,2 @@
-# ims
+
 Infrastructure Management System
