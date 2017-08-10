@@ -1,0 +1,9 @@
+---
+# vars file 
+
+jdk_src: "/opt/jdk-7u80-linux-x64.tar.gz"
+java_dir: "/opt/java"
+java_install:
+  - java
+  - jar
+  - javac

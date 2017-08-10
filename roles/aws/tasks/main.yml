@@ -1,0 +1,60 @@
+---
+# tasks file 
+
+- block: 
+  - name: create new instance 
+    ec2:
+      region: us-east-1
+      key_name: hany
+      group_id: sg-012eb97b
+      instance_type: t2.micro
+      image: ami-9e2f0988
+      wait: yes
+      count: 1
+      instance_tags: {"Name":"ansible2"}
+    register: ec2
+  
+  - name: redirect ec2_facts in a file
+    copy: 
+     content: "{{ ec2 }}" 
+     dest: /tmp/ec2.txt 
+  tags: [create_ec2]
+
+
+- block:
+  - name: stop instance 
+    ec2:
+      region: us-east-1
+      instance_id: "i-04e3e6951de733ff0"
+      state: stopped
+      wait: yes
+  tags: [stop_ec2]
+
+
+- block:
+  - name: start instance 
+    ec2:
+      region: us-east-1
+      instance_id: "i-04e3e6951de733ff0"
+      state: running
+      wait: yes
+    register: ec2
+
+  - name: redirect ec2_facts in a file
+    copy: 
+      content: "{{ ec2 }}" 
+      dest: /tmp/ec2.txt 
+  tags: [start_ec2]
+
+- block:
+  - name: terminate instance 
+    ec2:
+      region: us-east-1
+      instance_id: "i-04e3e6951de733ff0"
+      state: absent
+      wait: yes
+  - name: delete instance file
+    file:
+      path: /tmp/ec2.txt
+      state: absent
+  tags: [terminate_ec2]

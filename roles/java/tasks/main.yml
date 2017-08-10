@@ -1,0 +1,50 @@
+---
+# tasks file 
+
+# This block downloads and unpack the JDK version specified in the variables file
+- block:
+  - name: mkdir for Java
+    file: 
+      path: "{{ java_dir }}" 
+      state: directory 
+      owner: root 
+      group: root 
+      mode:  "u=rwx,go=rx"
+
+  - name: Unpack Java JDK archive
+    unarchive: 
+      src: "{{ jdk_src }}" 
+      dest: "{{ java_dir }}" 
+      owner: root 
+      group: root 
+      extra_opts: "--strip-components=1"
+      mode:  "go-w"
+      remote_src: True
+  tags: [java]
+
+- block:
+  - name: install java 
+    command: alternatives --install /usr/bin/{{ item }} {{ item }} {{ java_dir }}/bin/{{ item }} 2 chdir="{{ java_dir }}"
+    with_items: 
+      - java_install
+
+  - name: config java
+    command: alternatives --set {{ item }} {{ java_dir }}/bin/{{ item }} chdir="{{ java_dir }}"
+    with_items: 
+      - java_install
+  tags: [java]
+
+- block:
+  - name: add java_home env 
+    lineinfile:
+      path: /etc/profile.d/java_vars.sh
+      line: '{{ item }}'
+      create: yes
+    with_items: 
+      - export JAVA_HOME={{ java_dir }}
+      - export JRE_HOME={{ java_dir }}/jre
+      - export PATH=$PATH:{{ java_dir }}/bin:{{ java_dir }}/jre/bin
+  tags: [java]
+
+
+   
