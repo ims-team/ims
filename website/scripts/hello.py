@@ -1,9 +1,6 @@
-
-
-
-
-def main():
+def main(name,it,image,key):
+ return("")
     
-   return "hello"     
+    
 
 if __name__ == "__main__": main()

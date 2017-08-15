@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse 
 from django.template import Context, loader
 from django.core.urlresolvers import reverse
-from scripts import hello 
+from scripts import hello , passing, serv
 
 
 
@@ -17,9 +17,11 @@ def view_ansb(request):
         form = Ansbe(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            new= passing.getIP()
             post.Instance = form.cleaned_data['Instance']
             post.OS =form.cleaned_data['OS']
             post.Roles= form.cleaned_data['Roles']
+            serv.main(post.Instance, post.OS, post.Roles)
             post.save()
             return HttpResponse("Your request is in progress")
     else:
@@ -40,8 +42,8 @@ def view_form(request):
             post.Instance_Type =form.cleaned_data['Instance_Type']
             post.Image= form.cleaned_data['Image']
             post.key_name= form.cleaned_data ['key_name']
-            results = hello.main()
-            post.Name= results
+            results = hello.main(post.Name,post.Instance_Type,post.Image,post.key_name)
+            passing.main(results)
             post.save()
             return HttpResponseRedirect('/view_home/')
     else:

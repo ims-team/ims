@@ -50,6 +50,8 @@ class Ansb(models.Model):
     def get_absolute_url(self):
         return ('view_form', None, { 'slug': self.slug })
 
+    pass
+
 
 class Ansbe(models.Model):
    Server1 = 'Server1'
@@ -63,6 +65,8 @@ class Ansbe(models.Model):
    Java= 'Java'
    Tomcat= 'Tomcat'
    Common= 'Common'
+
+   
    I = (
         (Server1, 'Server1'),
         (Server2, 'Server2'),
@@ -82,14 +86,14 @@ class Ansbe(models.Model):
         (Tomcat,'Tomcat'),
         (Common, 'Common'),
     )
-
-  
   
 
 
    Instance = models.CharField(max_length=7 , choices= I, default=  Server1)
    OS = models.CharField(max_length=6 , choices = O ,default= Centos)
    Roles = models.CharField(max_length=7, choices =R, default = Java )
+   readonly_fields=('',)
+   
   
   
 
