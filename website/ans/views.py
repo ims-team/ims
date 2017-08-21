@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ans.models import Ansb 
+from ans.models import Ansb ,Ansbe
 from django.shortcuts import render_to_response, get_object_or_404
 from ans.forms import Ansb , Ansbe
 from django import forms
