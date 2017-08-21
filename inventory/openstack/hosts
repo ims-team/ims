@@ -1,0 +1,4 @@
+
+[servers]
+
+server ansible_host="{{ ip }}" ansible_ssh_private_key_file=
