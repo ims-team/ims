@@ -1,0 +1,18 @@
+---
+# tasks file 
+
+- stat:
+    path: /usr/bin/docker
+  register: docker
+
+- name: Install Docker 
+  command: "curl -fsSL https://get.docker.com/ | sh"
+  when: not docker.stat.exists
+- name: copy the dockercompose script
+  copy:
+    src: dockercompose.sh 
+    dest: /tmp
+
+- name: Install Docker Compose 
+  command: bash /tmp/dockercompose.sh
+
