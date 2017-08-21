@@ -1,102 +1,71 @@
-h1  {
-    color: #FF0000;
-    font-size:16pt ;
-    font-style: italic;
-    font-family: monospace;
-}
-#blue_header{
-	color: #003366;
-	font-size: 40pt;
-	font-style: bold;
-	text-align: left;
-
-}
 body {
-	border-spacing: 0px;
-	display: inline-block;
-	position: relative;
-	width:auto;
-    min-width:1280px;
-    height:auto;
-}
-
-#choices{
-	color: #007766;
-	font-size: 20pt;
-	font-style: italic;
-	text-align: center;
-	display: inline-block;
-
+  
 }
 .page-header {
     background-color: #a6a6a6;
     background-size: cover;
     margin-top: 0;
-    padding: 50px 0px 0px 40px;
-    height:160px;
-    overflow: hidden ;
-    
-}
-
-.row{
-	margin-left: 550;
-	text-align: center;
-	position: relative;
-	display: inline-block;
-
-
-
-}
-
-h3{
-	color: #000000;
-    font-size:10pt ;
-    position: relative;
-    top:-140px;
-    left: 50px;
-    display: inline-block;
-    
-    
+    padding: 50px 10px 30px 20px;
 
     }
- h2{
-	color: #000000;
-    font-size:12pt ;
-    position: relative;
-    text-align: center;
-    top:-30px;
-   
+
+.row{
+  text-align: center;
+  
+
+
   }
- h4{
-	color: #000000;
+h4{
+  color: #000000;
     font-size:70pt;
-    text-align: center;
-    position: relative;
     font-family: fantasy;
     font-style: bold;
     font-stretch: extra-expanded;
-    
-   
-  }
-  button{
-    background-color: #4CAF50;
-    border: none;
-    color: red;2
-    padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 
   }
-  
+  h2{
+    color: #000000;
+    font-size:12pt;
+    margin-top: -20px;
+
+  }
+h3{
+  color: #000000;
+    font-size:10pt ;
+    
+    }
+ h1  {
+    color: #FF0000;
+    font-size:16pt ;
+    font-style: italic;
+    font-family: monospace;
+}
+
+#choices{
+  color: #777766;
+  font-size: 20pt;
+  font-style: italic;
+  text-align: center;
+
+  }
+
+
+.info{
+    float:right;
+    margin-top: -150px;
+    z-index:0;
+
+  }
+
   .info1{
-  	top:100;
-  	
-  }
-  .info{
-  	position: relative;
-  	top: -90px;
-  	left: 820px;
-  	display: inline-block;
-  }
+    z-index:0;}
+
+
+img{
+ 
+  
+}
+.body{
+
+}
