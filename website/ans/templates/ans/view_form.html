@@ -8,7 +8,9 @@
                     {% block content %}
                            <h1 id= "choices">Instance Creation</h1>
                           <form method="POST" class="post-form">{% csrf_token %}
+                           <div class= "t">
                            {{ form.as_p }}
+                           </div>
                            <button type="submit" class="save btn btn-default">GO</button>
                           </form>
 

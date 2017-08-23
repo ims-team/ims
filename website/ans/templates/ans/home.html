@@ -1,0 +1,30 @@
+{% extends 'ans/base.html' %}
+{% load staticfiles %}
+<body>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                          <form method= "POST" class="post-form">{% csrf_token %}
+                           <div class="butn">
+                           <div class="center">
+                           <button type="submit" class="save btn btn-default" name="opa"></button>
+                           </div>
+                           <div class="right">
+                           <button type="submit" class="save btn btn-default" name="opb"></button>
+                           </div>
+                            <div class="left">
+                            <button type="submit" class="save btn btn-default" name="opc"></button>
+                            </div>
+                            <div class= "website">
+                            <button type="submit" class="save btn btn-default" name="opd"></button>
+                            </div>
+                            </div>
+                          </form>
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>

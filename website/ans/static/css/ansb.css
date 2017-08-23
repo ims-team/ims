@@ -3,14 +3,14 @@ body {
 }
 .page-header {
     background-color: #a6a6a6;
-    background-size: cover;
+    background-size: auto;
     margin-top: 0;
     padding: 50px 10px 30px 20px;
 
     }
 
 .row{
-  text-align: center;
+  text-align: left;
   
 
 
@@ -27,7 +27,7 @@ h4{
   h2{
     color: #000000;
     font-size:12pt;
-    margin-top: -20px;
+    margin-top: -40px;
 
   }
 h3{
@@ -43,7 +43,7 @@ h3{
 }
 
 #choices{
-  color: #777766;
+  color: #770066;
   font-size: 20pt;
   font-style: italic;
   text-align: center;
@@ -53,12 +53,15 @@ h3{
 
 .info{
     float:right;
-    margin-top: -150px;
+    margin-top: -50pt;
     z-index:0;
+   
 
   }
 
   .info1{
+    
+
     z-index:0;}
 
 
@@ -68,4 +71,37 @@ img{
 }
 .body{
 
+}
+.row{
+  text-align: center;
+}
+form{
+  
+}
+
+.website{
+  text-align: left;
+  margin-top: 470pt;
+}
+.left{
+  float:left;
+
+}
+.right{
+  float: right;
+}
+.bttn{
+  
+}
+.center{
+  position: relative;
+  top:2pt;
+}
+.end{
+  position: relative;
+  top: 10pt; 
+}
+.btsc{
+  position: relative;
+  top: 5pt;
 }

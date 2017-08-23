@@ -15,15 +15,17 @@ from scripts import hello , passing, serv
 def view_ansb(request):
     if request.method == "POST":
         form = Ansbe(request.POST)
+        print("hobala")
         if form.is_valid():
+            print("hobala")
             post = form.save(commit=False)
             new= passing.getIP()
-            post.Instance = form.cleaned_data['Instance']
-            post.OS =form.cleaned_data['OS']
+            post.Instance = new
             post.Roles= form.cleaned_data['Roles']
+            print("hobala")
             serv.main(post.Instance, post.OS, post.Roles)
             post.save()
-            return HttpResponse("Your request is in progress")
+            return HttpResponseRedirect('/view_end/')
     else:
         form = Ansbe()
         #return HttpResponse("Your request is in progress")
@@ -44,13 +46,36 @@ def view_form(request):
             post.key_name= form.cleaned_data ['key_name']
             results = hello.main(post.Name,post.Instance_Type,post.Image,post.key_name)
             passing.main(results)
+            print("hobala")
             post.save()
             return HttpResponseRedirect('/view_home/')
     else:
         form = Ansb()
         return render(request, 'ans/view_form.html', { 'form': form,})
 
+def view_end(request):
+   if request.method== "POST" and "opa" in request.POST:
+         return HttpResponseRedirect('/home/')
+   if request.method== "POST" and "opb" in request.POST:
+         return HttpResponseRedirect('/view_ansb/')
+   else:
+         return render(request, 'ans/view_end.html',)
 
+
+
+
+
+def home(request):
+   if request.method== "POST" and "opa" in request.POST:
+         return HttpResponseRedirect('/home/')
+   if request.method== "POST" and "opb" in request.POST:
+         return HttpResponseRedirect('/home/')
+   if request.method== "POST" and "opc" in request.POST:
+         return HttpResponseRedirect('/home/')
+   if request.method== "POST" and "opd" in request.POST:
+         return HttpResponseRedirect('/view_form/')
+   else:
+         return render(request, 'ans/home.html',)
    
 
 

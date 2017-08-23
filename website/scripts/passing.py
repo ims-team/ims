@@ -1,6 +1,6 @@
 
 class Console():
-  ip= "0"
+  ip= "0.1.2.3.4.5"
   def __init__(self, ip):
     self.ip=ip
   

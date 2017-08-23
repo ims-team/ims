@@ -1,6 +1,7 @@
 from django import forms
 from ans.models import Ansb , Ansbe
-
+from django.forms import ModelForm
+from scripts import hello , passing, serv
 
 class Ansb(forms.ModelForm):
     #CHOICES = (
@@ -28,11 +29,10 @@ class Ansbe(forms.ModelForm):
     #('S','SQL'),
     #)
      
-     
+   
     #role = forms.ChoiceField(choices= CHOICES)
     #ver = forms.CharField(max_length=6)
     #IP = forms.CharField(max_length=15)
     class Meta:
        model= Ansbe
        fields = ('Instance','OS','Roles')
-       

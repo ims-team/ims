@@ -1,0 +1,25 @@
+{% extends 'ans/base.html' %}
+{% load staticfiles %}
+<body>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                          
+                          
+                          <form method= "POST" class="end">{% csrf_token %}
+                            <p2> Your request is in progress</p2>
+                           <div class="home">
+                           <button type="submit" class="save btn btn-default" name="opa">Home</button>
+                           </div>
+                           <div class="btsc">
+                           <button type="submit" class="save btn btn-default" name="opb">Back to Server Configuration</button>
+                           </div>
+                          </form>
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>

@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from scripts import hello , passing, serv
+
 
 class Ansb(models.Model):
     Small = 'Small'
@@ -34,9 +36,9 @@ class Ansb(models.Model):
      
      
     Name = models.CharField(max_length=10)
-    Instance_Type= models.CharField(max_length=6, choices= IT, default = Small)
-    Image = models.CharField(max_length=6, choices = I, default = Centos)
-    key_name = models.CharField(max_length=7, choices = K , default= Public)
+    Instance_Type= models.CharField(max_length=10, choices= IT, default = Small)
+    Image = models.CharField(max_length=10, choices = I, default = Centos)
+    key_name = models.CharField(max_length=10, choices = K , default= Public)
      #def __unicode__(self):
       #  return '%s' % self.title
     
@@ -65,11 +67,12 @@ class Ansbe(models.Model):
    Java= 'Java'
    Tomcat= 'Tomcat'
    Common= 'Common'
+   Current='Current'
 
    
    I = (
-        (Server1, 'Server1'),
-        (Server2, 'Server2'),
+        (Current, 'Current'),
+
     )
 
    O = (
@@ -87,10 +90,10 @@ class Ansbe(models.Model):
         (Common, 'Common'),
     )
   
-
-
-   Instance = models.CharField(max_length=7 , choices= I, default=  Server1)
-   OS = models.CharField(max_length=6 , choices = O ,default= Centos)
+  
+   n= passing.getIP()
+   Instance = models.CharField(max_length=7 , choices=I , default=  Current, help_text=n)
+   OS = models.CharField(max_length=7 , choices = O ,default= Centos)
    Roles = models.CharField(max_length=7, choices =R, default = Java )
    readonly_fields=('',)
    
